@@ -99,7 +99,26 @@ You can see 2 methods here: UP/DOWN
 - Up: is executed by sequelize when you run migration. Here you can specify new column, new column etc.
 - Down: is executed when migraton is undoing. For example if you create a new field in up, in down you should specify remove that column
 
-  
+### Undoing migrations
+For undo migrations you can execute the next command
+
+**npx sequelize-cli db:migrate:undo**
+
+This will delete the last migration file created ever.
+
+## Seeders
+You use a seed when a base new table is created and is necessary fill it to use with another for example
+If you have table Bank, with field typeBankId. Is necessary create the table  TypeBank and this table should be fill up with seed.
+Another important case, is when table has not way to managed by app, for example in this case where user does not fill TypeBank in any step.
+
+To create seed is necessary run the next command:
+
+npx sequelize-cli seed:generate --name ***name of seed***
+
+This will create a new file in the folder sequelize/seeders
+
+This file seems like migration file, you can put here initial json to fill data or script with some logic.
+
 # Sequelize
 Create a new migration file `node_modules/.bin/sequelize migration:generate --name name`
 Create models `node_modules/.bin/sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string`
