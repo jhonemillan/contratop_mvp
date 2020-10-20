@@ -15,7 +15,7 @@ This project is built on Node.js, Express, Typescript, Sequelize, Postgresql, an
 2.  Execute in command line, npm install -g node-gyp 
 
 3.  Set python variable for node-gyp with the command npm config set python 'route to python'
-    Please visit the next web [node-gyp] (https://github.com/nodejs/node-gyp) and select proccess depending of your Operative System
+    Please visit the next web [node-gyp](https://github.com/nodejs/node-gyp) and select proccess depending of your Operative System
 
 4.  Be Sure about the editor configuration you are using, because is important to maintain the same Lint rules.
     We recommend to use VS Code.
@@ -119,7 +119,29 @@ This will create a new file in the folder sequelize/seeders
 
 This file seems like migration file, you can put here initial json to fill data or script with some logic.
 
-# Sequelize
+```
+'use strict';
+
+module.exports = {
+  up: (queryInterface, Sequelize) => {
+    return queryInterface.bulkInsert('Test', [
+      {
+        code: 'test',
+        name: 'test',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      },
+      
+    ], {});
+  },
+
+  down: (queryInterface, Sequelize) => {
+    return queryInterface.bulkDelete('Test', null, {});
+  }
+};
+```
+
+# Project Structure
 Create a new migration file `node_modules/.bin/sequelize migration:generate --name name`
 Create models `node_modules/.bin/sequelize model:generate --name User --attributes firstName:string,lastName:string,email:string`
 
