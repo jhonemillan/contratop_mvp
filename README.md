@@ -2,7 +2,7 @@
 This project is built on Node.js, Express, Typescript, Sequelize, Postgresql, and Jest mainly.
 
 # Basic Requirements
-[x] Install PostgreSQL
+[x] Install PostgreSQL \n
 [x] Install Node.js (See comments)
 [x] Install some DB Manager (Normally we use DBeaver)
 [x] Be sure you have word or some text proccessor to read and open doc/docx files
