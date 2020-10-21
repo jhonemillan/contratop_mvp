@@ -147,22 +147,22 @@ module.exports = {
 When the project is downloaded you will see the next structure:
 
 - __tests__: this folder store all unit test of project
-- public: Some public data, files
-- report-templates: This folder store all templates used by project to create word/pdf reports.
-- scripts: Generally these scripts are JS code, and are executed outside the project by a cron job or something like that.
-- sequelize: This folder store migrations and seeders created by sequelize.
-- src: This folder store entire logic app. In root you can find app.ts and bootstrap.ts
-- src/controllers: This folder contains endpoints and logic, we have folder by module
-- src/hooks: This folder store the logic applied in hook methods for some models. 
+- **public**: Some public data, files
+- **report-templates:** This folder store all templates used by project to create word/pdf reports.
+- **scripts:** Generally these scripts are JS code, and are executed outside the project by a cron job or something like that.
+- **sequelize:** This folder store migrations and seeders created by sequelize.
+- **src:** This folder store entire logic app. In root you can find app.ts and bootstrap.ts
+- **src/controllers:** This folder contains endpoints and logic, we have folder by module
+- **src/hooks:** This folder store the logic applied in hook methods for some models. 
   ***Hooks (also known as lifecycle events), are functions which are called before and after calls in sequelize are executed. For example, if you want to always set a value on a model before saving it, you can add a beforeUpdate hook.***
   See [Hooks](https://sequelize.org/master/manual/hooks.html)
-- src/integrations: This folder store logic to integrate third party libraries to the project, in order to be available to entire backend.
-- src/interfaces: This folder store all interfaces to get types in codes. The idea is to have types a lot as possible and avoid use of    type ANY for variables or methods. All should return a known type.
-- src/lib: This folder store some logic for third party libraries and its configuration.
-- src/models: All models used in app. Each model correspond to a table in DB.
-- src/policies: This folder store some policies and logic applied to enpoints in decorator way
-- src/services: Logic available for any method, service, endpoint that need it.
-- src/utils: Some methods used for entire application from any module, for example upload file, convert files etc
+- **src/integrations:** This folder store logic to integrate third party libraries to the project, in order to be available to entire backend.
+- **src/interfaces:** This folder store all interfaces to get types in codes. The idea is to have types a lot as possible and avoid use of    type ANY for variables or methods. All should return a known type.
+- **src/lib:** This folder store some logic for third party libraries and its configuration.
+- **src/models:** All models used in app. Each model correspond to a table in DB.
+- **src/policies:** This folder store some policies and logic applied to enpoints in decorator way
+- **src/services:** Logic available for any method, service, endpoint that need it.
+- **src/utils:** Some methods used for entire application from any module, for example upload file, convert files etc
 
 # Error Format
 In application, we have a specific way to manage errors look the next object. You will see some categories to apply to each error
@@ -266,13 +266,13 @@ In application, we have a specific way to manage errors look the next object. Yo
 
 In the previous section, you see there is a folder where some specific scripts has been done for specific tasks. This is a short description about them
 
-- dropTables: Used for script ***npm run test*** this will drop entire DB
-- exec: This is used for execute webhook methods in a different threat of Node. Mainly encompass module uses this.
-- migrateParametersToLowDB: This is important because a json file is created and contains all data from table Parameter. With this file   backend avoids consume DB in a lot of tasks where parameter data is consumed.
-- send-encompass-encomplete-letter: This script is used to send to a client, a formal letter when the loan is very close to expire and is in status 'admin-overview'.
-- send-encompass-encomplete-loan: This script takes all loans no passed by Pass to Review yet, and then execute a method with Encompass   module to assign id, and code, if fail a email is sent.
-- send-mqs: This script is used to test Active MQ sending messages
-- get-mqs: This script is used to test Active MQ receiving messages
+- **dropTables:** Used for script ***npm run test*** this will drop entire DB
+- **exec:** This is used for execute webhook methods in a different threat of Node. Mainly encompass module uses this.
+- **migrateParametersToLowDB:** This is important because a json file is created and contains all data from table Parameter. With this file   backend avoids consume DB in a lot of tasks where parameter data is consumed.
+- **send-encompass-encomplete-letter:** This script is used to send to a client, a formal letter when the loan is very close to expire and is in status 'admin-overview'.
+- **send-encompass-encomplete-loan:** This script takes all loans no passed by Pass to Review yet, and then execute a method with Encompass   module to assign id, and code, if fail a email is sent.
+- **send-mqs:** This script is used to test Active MQ sending messages
+- **get-mqs:** This script is used to test Active MQ receiving messages
 
 # Queues
 For some taks we are using Active MQ platform, to send and receive messages in Encompass module. Each update in Loan send a update to Encompass with MQ, if fail is resent again up to 5 times. All this fails are shown in slack.
